@@ -56,10 +56,13 @@ client.on('message', msg => {
                 }                
                 break;
            case 'emoji':
-                //if(targ === Discordjs.emoji){
-                    msg.reply(targ.url);
+                if(/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?a-zA-Z0-9]/g.test(targ)){
+                    msg.channel.send(typeof targ);
+                    msg.channel.send(targ.name);
                     //msg.reply(args.url);
-                //}
+                } else{
+                    msg.channel.send("False!");
+                }
                 break;
             
             case 'gotem':
